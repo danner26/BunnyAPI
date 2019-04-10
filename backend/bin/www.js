@@ -4,7 +4,7 @@ const app = require('../app');
 const http = require('http');
 
 /* Lock the port and hand it to express */
-const port = normalizePort(process.env.PORT || '4000');
+const port = normalizePort(process.env.PORT || '4001');
 app.set('port', port);
 
 /* Generate our HTTP server */
