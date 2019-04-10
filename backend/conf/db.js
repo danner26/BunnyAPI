@@ -1,5 +1,5 @@
 const mysql = require('mysql');
-const dbDetails = require('/var/www_conf/bunny-api/db');
+const dbDetails = require('/var/www_conf/BunnyAPI/db_conf');
 
 const db = mysql.createConnection ({
     host: dbDetails.host,
