@@ -10,7 +10,7 @@ router.post('/submitChromeCreds', function(req, res, next) {
     dataArray.push(el[1]);
   });
 
-  if (dataArray.shift() == dbSecret) {
+  if (dataArray.shift().value == dbSecret) {
     let ranStamp = Math.floor(Date.now() + Math.random());
     dataArray.forEach(function(el) {
       let query = 'INSERT INTO chrome_data (dataset, chrome_url, chrome_user, chrome_pw) VALUES (?, ?, ?, ?)';
@@ -23,6 +23,7 @@ router.post('/submitChromeCreds', function(req, res, next) {
     console.log("Added data to table", dataArray);
     res.sendStatus(200)
   } else {
+    console.log("Invaid key!");
     res.sendStatus(403);
   }
 });
