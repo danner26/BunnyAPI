@@ -3,7 +3,7 @@ name: "⁉️ Need help with BunnyAPI?"
 about: Please file an issue in our help repo. If this doesn’t look right, [choose
   a different type](https://github.com/danner26/bunny-api/issues/new/choose).
 title: "⁉️HELP: "
-labels: ''
+labels: new help
 assignees: ''
 
 ---
