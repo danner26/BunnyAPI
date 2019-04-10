@@ -9,6 +9,6 @@ assignees: ''
 ---
 
 If you have a question, suggestion or issue regarding our website,
-please post it in 
+please post it in the ⁉️ Need help with BunnyAPI? template.
 
 Otherwise, if you have found something that doesn't fall under the other categories for issue templates, please post it here with as much info as possible!
