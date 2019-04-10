@@ -3,7 +3,7 @@
 #Setup API server enviornment
 #####################################################
 if [ -z "$API_HOME" ]; then
-    export API_HOME=/var/www/bunny-api/backend
+    export API_HOME=/var/www/BunnyAPI/backend
 fi
 
 export NODE_ENV=production
