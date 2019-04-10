@@ -4,7 +4,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const chrome = require('./routes/chrome');
 const cookieParser = require('cookie-parser');
-require('/var/www_conf/bunny-api/db');
+require('./conf/db');
 
 /* Let app use bodyParser */
 app.use(bodyParser.json());
