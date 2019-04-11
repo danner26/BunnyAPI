@@ -1,5 +1,11 @@
+#!/usr/bin/env node
+/* ---- BunnyAPI ----
+* @Author: Daniel W. Anner
+*/
+/* express needs to be defined first */
 const express = require('express');
 
+/* set out constants and init our requires */
 const app = express();
 const bodyParser = require('body-parser');
 const chrome = require('./routes/chrome');

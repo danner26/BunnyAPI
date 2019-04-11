@@ -1,4 +1,7 @@
 #!/usr/bin/env node
+/* ---- BunnyAPI ----
+* @Author: Daniel W. Anner
+*/
 const log = require('./loggers/logger-app');
 const app = require('../app');
 const http = require('http');
