@@ -7,11 +7,11 @@ const mysql = require('mysql');
 const dbDetails = require('/var/www_conf/BunnyAPI/db_conf');
 
 /* create our mysql connection */
-const db = mysql.createConnection ({
-    host: dbDetails.host,
-    user: dbDetails.user,
-    password: dbDetails.password,
-    database: dbDetails.database
+const db = mysql.createConnection({
+  host: dbDetails.host,
+  user: dbDetails.user,
+  password: dbDetails.password,
+  database: dbDetails.database,
 });
 
 /* attempt to connect to the database */
