@@ -1,4 +1,4 @@
-# BunnyAPI
+# BunnyAPI [![codebeat badge](https://codebeat.co/badges/6d7f9114-b2b4-4242-834f-769b9db47c18)](https://codebeat.co/projects/github-com-danner26-bunnyapi-develop)
 `BunnyAPI` is a Node.JS/Express.JS simple API that retrieves JSON from the [BunnyScripts](https://github.com/danner26/BunnyScripts) repo by Daniel W. Anner and Gregory Walsh. This project is originally for our CSIS33-3381 with Dr. Aakash Taneja. In working on this project, we have found a new respect and passion for these Bash Bunny scripts. We plan to keep our research going, and continue to upkeep and integrate new features for this API.
 
 ## Usage
