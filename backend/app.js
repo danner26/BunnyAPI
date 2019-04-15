@@ -10,7 +10,6 @@ const app = express();
 const bodyParser = require('body-parser');
 const chrome = require('./routes/chrome');
 const cookieParser = require('cookie-parser');
-require('./conf/db');
 
 /* Let app use bodyParser */
 app.use(bodyParser.json());

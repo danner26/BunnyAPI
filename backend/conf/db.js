@@ -23,5 +23,4 @@ db.connect((err) => {
 });
 
 /* make the database connection & the secret accessable to the global project */
-global.db = db;
-global.dbSecret= dbDetails.secret;
+module.exports = db;

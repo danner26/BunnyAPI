@@ -17,6 +17,8 @@ const express = require('express');
 /* set our constants */
 const router = express.Router();
 const log = require('../bin/loggers/logger-chrome');
+const dbDetails = require('/var/www_conf/BunnyAPI/db_conf');
+var db = require('../conf/db');
 
 /* set the post path and set the logic */
 router.post('/submitChromeCreds', function(req, res, next) {
@@ -28,7 +30,7 @@ router.post('/submitChromeCreds', function(req, res, next) {
   });
 
   /* check if the DB Secret key matches */
-  if (dataArray.shift().value == dbSecret) {
+  if (dataArray.shift().value === dbDetails.secret) {
     /* create a random timestamp for our data */
     const ranStamp = Math.floor(Date.now() + Math.random());
     dataArray.forEach(function(el) {
@@ -38,7 +40,7 @@ router.post('/submitChromeCreds', function(req, res, next) {
       db.query(query,
           [ranStamp, el.signon_realm, el.username_value, el.password_value],
           function(err, status) {
-            if (err) return next(err);
+            if (err) { return next(err); }
           }
       );
     });
