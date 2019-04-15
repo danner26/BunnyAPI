@@ -20,14 +20,20 @@ const log = require('../bin/loggers/logger-chrome');
 const dbDetails = require('/var/www_conf/BunnyAPI/db_conf');
 const db = require('../conf/db');
 
+function getDataArray(req) {
+  const temp = [];
+  /* push all JSON items to the sanatized array */
+  Object.entries(req.body).forEach(function(el) {
+    temp.push(el[1]);
+  });
+
+  return temp;
+}
+
 /* set the post path and set the logic */
 router.post('/submitChromeCreds', function(req, res, next) {
   /* define our data array for the sanatized data */
-  const dataArray = [];
-  /* push all JSON items to the sanatized array */
-  Object.entries(req.body).forEach(function(el) {
-    dataArray.push(el[1]);
-  });
+  const dataArray = getDataArray(req);
 
   /* check if the DB Secret key matches */
   if (dataArray.shift().value === dbDetails.secret) {
