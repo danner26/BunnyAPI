@@ -6,6 +6,13 @@ const log = require('./loggers/logger-app');
 const app = require('../app');
 const http = require('http');
 
+/* Lock the port and hand it to express */
+const port = normalizePort(process.env.PORT || '4001');
+app.set('port', port);
+
+/* Generate our HTTP server */
+const server = http.createServer(app);
+
 /** * START FUNCTIONS ***/
 /* Normalize a port - [number, string, boolean] */
 function normalizePort(val) {
@@ -20,18 +27,6 @@ function normalizePort(val) {
   }
 
   return false;
-}
-/* HTTP Error Listener */
-function onError(error) {
-  if (error.syscall !== 'listen') {
-    throw error;
-  }
-
-  const bind = (typeof port) === 'string'
-        ? 'Pipe ' + port
-        : 'Port ' + port;
-
-  logErrorHelper(error, bind);
 }
 /* Handle specific errors with 'friendlier' logs */
 function logErrorHelper(error, bind) {
@@ -48,7 +43,18 @@ function logErrorHelper(error, bind) {
       throw error;
   }
 }
+/* HTTP Error Listener */
+function onError(error) {
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
 
+  const bind = (typeof port) === 'string'
+        ? 'Pipe ' + port
+        : 'Port ' + port;
+
+  logErrorHelper(error, bind);
+}
 /* Event listener for HTTP 'Listening' event */
 function onListening() {
   const addr = server.address();
@@ -58,14 +64,6 @@ function onListening() {
   log.info('Listening on ' + bind);
 }
 /** * END FUNCTIONS ***/
-
-
-/* Lock the port and hand it to express */
-const port = normalizePort(process.env.PORT || '4001');
-app.set('port', port);
-
-/* Generate our HTTP server */
-const server = http.createServer(app);
 
 /* Listen on port, on all interfaces */
 server.listen(port);
