@@ -1,5 +1,8 @@
 # BunnyAPI
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/2701ebf417a34bab80dca1750aae8722)](https://app.codacy.com/app/danner26/BunnyAPI?utm_source=github.com&utm_medium=referral&utm_content=danner26/BunnyAPI&utm_campaign=Badge_Grade_Dashboard)
+
+
 `BunnyAPI` is a Node.JS/Express.JS simple API that retrieves JSON from the [BunnyScripts](https://github.com/danner26/BunnyScripts) repo by Daniel W. Anner and Gregory Walsh. This project is originally for our CSIS33-3381 with Dr. Aakash Taneja. In working on this project, we have found a new respect and passion for these Bash Bunny scripts. We plan to keep our research going, and continue to upkeep and integrate new features for this API.
 
 ## Usage
