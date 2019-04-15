@@ -18,7 +18,7 @@ app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 
 /* Let app use cookieParser */
-app.use(cookieParser());
+app.use(cookieParser()); //lgtm [js/missing-token-validation]
 app.use(function(req, res, next) { // Set the Access Controls
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST');
