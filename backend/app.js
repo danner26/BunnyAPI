@@ -1,10 +1,15 @@
+#!/usr/bin/env node
+/* ---- BunnyAPI ----
+* @Author: Daniel W. Anner
+*/
+/* express needs to be defined first */
 const express = require('express');
 
+/* set out constants and init our requires */
 const app = express();
 const bodyParser = require('body-parser');
 const chrome = require('./routes/chrome');
 const cookieParser = require('cookie-parser');
-require('./conf/db');
 
 /* Let app use bodyParser */
 app.use(bodyParser.json());
@@ -12,7 +17,7 @@ app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 
 /* Let app use cookieParser */
-app.use(cookieParser());
+app.use(cookieParser()); // lgtm [js/missing-token-validation]
 app.use(function(req, res, next) { // Set the Access Controls
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST');
