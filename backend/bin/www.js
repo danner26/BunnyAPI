@@ -6,7 +6,7 @@ const log = require('./loggers/logger-app');
 const app = require('../app');
 const http = require('http');
 
-/*** START FUNCTIONS ***/
+/** * START FUNCTIONS ***/
 /* Normalize a port - [number, string, boolean] */
 function normalizePort(val) {
   const port = parseInt(val, 10);
@@ -57,7 +57,7 @@ function onListening() {
         : 'port ' + addr.port;
   log.info('Listening on ' + bind);
 }
-/*** END FUNCTIONS ***/
+/** * END FUNCTIONS ***/
 
 
 /* Lock the port and hand it to express */

