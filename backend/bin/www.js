@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /* ---- BunnyAPI ----
-* @Author: Daniel W. Anner
-*/
+ * @Author: Daniel W. Anner
+ */
 const log = require('./loggers/logger-app');
 const app = require('../app');
 const http = require('http');
@@ -18,11 +18,13 @@ const server = http.createServer(app);
 function normalizePort(val) {
   const port = parseInt(val, 10);
 
-  if (isNaN(port)) { // Named port
+  if (isNaN(port)) {
+    // Named port
     return val;
   }
 
-  if (port >= 0) { // Port = number
+  if (port >= 0) {
+    // Port = number
     return port;
   }
 
@@ -49,18 +51,14 @@ function onError(error) {
     throw error;
   }
 
-  const bind = (typeof port) === 'string'
-        ? 'Pipe ' + port
-        : 'Port ' + port;
+  const bind = typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port;
 
   logErrorHelper(error, bind);
 }
 /* Event listener for HTTP 'Listening' event */
 function onListening() {
   const addr = server.address();
-  const bind = (typeof addr) === 'string'
-        ? 'pipe ' + addr
-        : 'port ' + addr.port;
+  const bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
   log.info('Listening on ' + bind);
 }
 /** * END FUNCTIONS ***/
