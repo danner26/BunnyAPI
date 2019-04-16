@@ -23,3 +23,6 @@ Pull requests are the way to go here. We only have two rules for submitting a pu
 [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/danner26/BunnyAPI.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/danner26/BunnyAPI/context:javascript)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/cdaf726373fa4744be72cd39e3bca465)](https://www.codacy.com/app/danner26/BunnyAPI?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=danner26/BunnyAPI&amp;utm_campaign=Badge_Grade)
 [![CodeFactor](https://www.codefactor.io/repository/github/danner26/bunnyapi/badge)](https://www.codefactor.io/repository/github/danner26/bunnyapi)
+
+## Disclaimer
+This repository is for education and research purposes only. Anything provided by this repo is to be used with your own responsibility, as we do not assume any responsibility for damages to any party. By cloning, copying, or using anything in this repository, you accept any and all responsability and liability. Please be careful and think.
